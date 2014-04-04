@@ -7,3 +7,6 @@ Node.js modify files
 * Grunt uglify for minification
 * Grunt unit test
 * Sample recipe
+
+###
+Tested on Windows 7 with Node.js v0.10.3

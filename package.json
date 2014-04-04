@@ -1,0 +1,23 @@
+{
+  "name": "mod-files",
+  "version": "1.0.0",
+  "description": "Easily modify files via Node.js",
+  "main": "mod-files.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danactive/mod-files.git"
+  },
+  "keywords": [
+    "read",
+    "write",
+    "modify",
+    "file"
+  ],
+  "author": "Dan BROOKS",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "ff80f5d36b2911f7872d51552f145d18253d0ade"
+}
