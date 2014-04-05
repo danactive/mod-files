@@ -3,8 +3,7 @@ var fs = require('fs'),
 	group,
 	options = {
 		arg: []
-	},
-	version = {};
+	};
 
 function processJson(recipeFile, fileType) {
 	fs.readFile(recipeFile.path, function (errRead, rawJson) {
@@ -14,7 +13,7 @@ function processJson(recipeFile, fileType) {
 		var parsedJson = JSON.parse(rawJson);
 		options.fileType = fileType;
 		if (recipeFile.callback) {
-			parsedJson = recipeFile.callback.call(recipeFile, parsedJson, version, options);
+			parsedJson = recipeFile.callback.call(recipeFile, parsedJson, options);
 		}
 		fs.writeFile(recipeFile.path, JSON.stringify(parsedJson, null, "\t"), function (errWrite) {
 			if (errWrite) {
@@ -39,7 +38,7 @@ function processXml(recipeFile, fileType) {
 			var xml;
 			options.fileType = fileType;
 			if (recipeFile.callback) {
-				parsedXml = recipeFile.callback.call(recipeFile, parsedXml, version, options);
+				parsedXml = recipeFile.callback.call(recipeFile, parsedXml, options);
 			}
 			
 			xml = new xmlModule.Builder().buildObject(parsedXml);
@@ -60,7 +59,7 @@ function processText(recipeFile, fileType) {
 		var parsedText = rawText.toString();
 		options.fileType = fileType;
 		if (recipeFile.callback) {
-			parsedText = recipeFile.callback.call(recipeFile, parsedText, version, options);
+			parsedText = recipeFile.callback.call(recipeFile, parsedText, options);
 		}
 		fs.writeFile(recipeFile.path, parsedText, function (errWrite) {
 			if (errWrite) {
@@ -102,16 +101,9 @@ function getArgs() {
 		/*
 			index 0 is (built-in) "node"
 			index 1 is (built-in) the name of the JavaScript file
-			index 2 is (custom) current old version
-			index 3 is (custom) current old version
-			index 4 is (custom) future new version
+			index 2 is custom
 		*/
-		if (index === 2) {
-			group = value;
-		} else if (index === 3) {
-			version.future = value;
-			options.arg[0] = value;
-		} else if (index >= 4) {
+		if (index >= 2) {
 			options.arg[index - 2] = value;
 		}
 	});
