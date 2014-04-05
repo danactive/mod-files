@@ -1,6 +1,6 @@
 {
   "name": "mod-files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily modify files via Node.js",
   "main": "mod-files.js",
   "scripts": {
