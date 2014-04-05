@@ -1,6 +1,6 @@
 {
   "name": "mod-files",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Easily modify files via Node.js",
   "main": "mod-files.js",
   "scripts": {
@@ -27,5 +27,4 @@
   "author": "Dan BROOKS",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "gitHead": "ff80f5d36b2911f7872d51552f145d18253d0ade"
 }

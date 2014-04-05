@@ -13,3 +13,6 @@ Tested on Windows 7 with Node.js v0.10.3
 
 ### Supports
 XML, JSON, and text files
+
+## Sample
+[Web.config, package.json, and .gitignore](./sample/mod-files-recipe.js)
