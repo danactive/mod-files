@@ -14,7 +14,15 @@
     "read",
     "write",
     "modify",
-    "file"
+    "file",
+    "release",
+    "version",
+    "bump",
+    "package.json",
+    "JSON",
+    "web.config",
+    "XML",
+    "text"
   ],
   "author": "Dan BROOKS",
   "license": "MIT",
