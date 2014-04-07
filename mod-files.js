@@ -1,6 +1,5 @@
 /*global console, process, require*/
 var fs = require('fs'),
-	group,
 	options = {
 		arg: []
 	};
@@ -72,24 +71,22 @@ function processText(recipeFile, fileType) {
 
 function writeToFiles() {
 	var fileType,
-		recipes = require('./mod-files-recipe.js');
+		recipes = require('./../../mod-files-recipe.js');
 
 	recipes.forEach(function (recipe) {
 		if (recipe.path) {
-			if ((recipe.group && recipe.group === group) || (recipe.group === undefined)) {
-				fileType = recipe.path.substring(recipe.path.lastIndexOf(".")+1);
-				switch (fileType) {
-					case "json":
-						processJson(recipe, fileType);
-						break;
-					case "config":
-					case "xml":
-						processXml(recipe, fileType);
-						break;
-					default:
-						processText(recipe, fileType);
-						break;
-				}
+			fileType = recipe.path.substring(recipe.path.lastIndexOf(".")+1);
+			switch (fileType) {
+				case "json":
+					processJson(recipe, fileType);
+					break;
+				case "config":
+				case "xml":
+					processXml(recipe, fileType);
+					break;
+				default:
+					processText(recipe, fileType);
+					break;
 			}
 		}
 	});
